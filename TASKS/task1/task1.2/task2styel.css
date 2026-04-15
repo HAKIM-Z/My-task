@@ -1,0 +1,29 @@
+body {
+  background-color: rgb(28, 32, 72);
+}
+h1 {
+  color: yellow;
+}
+.container {
+  background-color: rgb(70, 57, 245);
+}
+p {
+  width: 300px;
+  display: inline-block;
+  vertical-align: middle;
+}
+img {
+  width: 300px;
+  height: 200px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 3px solid black;
+}
+.one,
+.two {
+  display: inline-block;
+}
+.par_one {
+  color: white;
+  width: fit-content;
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="task1style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="one">
+        <img src="images/boy.jpg" alt="boy with football" />
+      </div>
+      <div class="two">
+        <h1 style="color: red; font-size: x-large">
+          Youth Club Trials Registration
+        </h1>
+        <hr />
+        <form action="">
+          <label for="">Trial Date</label>
+          &nbsp;&nbsp;&nbsp;
+          <input type="date" required />
+          <br /><br />
+          <label for="">Trial Time</label>
+          &nbsp;&nbsp;&nbsp;
+          <input type="time" required />
+          <br /><br />
+          <label for="">Player Name</label>
+          <input type="text" placeholder="first name" required />
+          <input type="text" placeholder="last name" required />
+          <br /><br />
+          <label for="">Gender</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="radio" name="radiogender" />male
+          <input type="radio" name="radiogender" />female <br /><br />
+          <label for="">Phone</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="tel" placeholder="+20 12 2906 5037" required />
+          <br /><br />
+          <label for="">Address</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="text" required placeholder="city" />
+          <input type="text" required placeholder="state" />
+          <br /><br />
+          <label for="">about</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <textarea name="" id="" maxlength="200"></textarea>
+          <br /><br />
+          <label for="">Game</label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <select name="sport" id="sport">
+            <option value="">----choose your prefered game</option>
+            <option value="football">Football</option>
+            <option value="basketball">Basketball</option>
+            <option value="swimming">Swimming</option>
+            <option value="handball">Handball</option>
+            <option value="volleyball">Volleyball</option>
+            <option value="tennis">Tennis</option>
+          </select>
+          <br /><br />
+          <div class="buttons">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
