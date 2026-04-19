@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.one {
+  height: 900px;
+  background-image: url(images/drew-coffman-1872.jpg);
+  background-size: cover;
+}
+nav {
+  position: fixed;
+  width: 100%;
+  color: white;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+  padding-right: 100px;
+  padding-top: 30px;
+  font-size: 20px;
+}
