@@ -2,23 +2,164 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 400;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  padding: 20px 50px;
+  color: white;
+  background-color: #8e7754;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 50px;
+  font-family: "Alegreya", serif;
+  font-weight: 400;
 }
 .one {
   height: 900px;
   background-image: url(images/drew-coffman-1872.jpg);
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-nav {
-  position: fixed;
-  width: 100%;
+.content {
+  color: white;
+  width: fit-content;
+  text-align: center;
+  padding-top: 90px;
+}
+button {
+  padding: 15px 28px;
+  border-radius: 5px;
   color: white;
 }
-nav ul {
-  list-style-type: none;
+.buttons {
   display: flex;
-  justify-content: flex-end;
-  gap: 50px;
-  padding-right: 100px;
-  padding-top: 30px;
-  font-size: 20px;
+  justify-content: center;
+  gap: 20px;
+}
+.bt1 {
+  background-color: #8e7754;
+  border: none;
+}
+.bt2 {
+  background: none;
+  border-color: white;
+}
+button:hover {
+  background-color: white;
+  color: black;
+}
+.loader {
+  display: block;
+  width: 48px;
+  height: 78px;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  position: relative;
+  border-radius: 50% 50% 50% 50% / 25% 25% 25% 25%;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 50%);
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  animation: fadeDown 1s ease-out infinite;
+}
+
+@keyframes fadeDown {
+  0% {
+    top: 0%;
+    opacity: 1;
+  }
+  100% {
+    top: 60%;
+    opacity: 0;
+  }
+}
+.two,
+.three {
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+}
+.loadcont {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.sec21 img,
+.sec32 img {
+  width: 450px;
+  height: 450px;
+}
+.sec22 ul {
+  list-style-position: inside;
+}
+.sec22,
+.sec31 {
+  color: #8e7754;
+  height: fit-content;
+  width: fit-content;
+}
+.three,
+.five {
+  background-color: #f8f8f8;
+}
+.four {
+  height: 800px;
+  text-align: center;
+  color: #8e7754;
+}
+.four h2 {
+  padding-top: 80px;
+}
+.four img {
+  width: 300px;
+  height: 300px;
+}
+.sec41 {
+  width: 310px;
+}
+.seccont {
+  display: flex;
+  padding: 100px;
+  justify-content: center;
+  gap: 80px;
+}
+.five {
+  height: 800px;
+  color: #8e7754;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+}
+.sec51 {
+  width: fit-content;
+  height: fit-content;
+}
+.sec51 ul {
+  list-style-position: inside;
+}
+.sec52 iframe {
+  width: 600px;
+  height: 600px;
 }
