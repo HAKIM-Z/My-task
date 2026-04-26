@@ -1,0 +1,498 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@700&display=swap");
+:root {
+  --primary-color: #e43c17;
+  --header-bg: rgba(0, 0, 0, 0.8);
+  --transition: all 0.3s ease-in-out;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444;
+}
+header {
+  background-color: var(--header-bg);
+  padding: 15px 0;
+  position: fixed; /* ليظل ثابتاً في الأعلى عند السكرول */
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+.header_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.logo {
+  text-decoration: none;
+}
+.logo h1 {
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.nav_bar ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+.nav_bar ul li {
+  padding: 10px 15px;
+  position: relative;
+}
+.nav_bar ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: var(--transition);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.nav_bar ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+.nav_bar ul li a:hover::after,
+.nav_bar ul li a.active::after {
+  width: 100%;
+}
+.nav_bar ul li a:hover,
+.nav_bar ul li a.active {
+  color: var(--primary-color);
+}
+/* --- ضبط القوائم المنسدلة --- */
+
+/* القائمة الأولى */
+.nav_bar .dropdown ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #181a1b;
+  min-width: 200px;
+  padding: 10px 0;
+  list-style: none;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
+  z-index: 999;
+  display: block;
+  border-radius: 8px;
+  /* تم حذف overflow: hidden من هنا للسماح بظهور القائمة العميقة */
+}
+
+/* لضمان أن عناصر القائمة تكون رأسية دائماً */
+.nav_bar .dropdown ul li {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+
+.nav_bar .dropdown:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+}
+
+/* القائمة العميقة (Deep Dropdown) */
+.nav_bar .dropdown ul li.deep_dropdown {
+  position: relative;
+}
+
+.nav_bar .dropdown ul li.deep_dropdown ul {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  left: auto;
+  background-color: #181a1b;
+  margin-right: 2px;
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  transition: 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.nav_bar .dropdown ul li.deep_dropdown:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  right: 100%;
+  left: auto;
+}
+
+/* تنسيق الروابط داخل القوائم */
+.nav_bar .dropdown ul li a {
+  color: #fff;
+  padding: 12px 20px;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+}
+
+/* إضافة border-radius للروابط الأولى والأخيرة لضمان شكل الـ Hover */
+.nav_bar .dropdown ul li:first-child a {
+  border-radius: 8px 8px 0 0;
+}
+.nav_bar .dropdown ul li:last-child a {
+  border-radius: 0 0 8px 8px;
+}
+
+.nav_bar .dropdown ul li a::after {
+  display: none !important;
+}
+
+.nav_bar .dropdown ul li a:hover {
+  color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav_bar .dropdown ul li a i {
+  float: right;
+  line-height: 1.5;
+  font-size: 12px;
+}
+.sec_one {
+  height: 100vh;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.sec_one_content h1 {
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.sec_one_content p {
+  color: #eee;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+.btn-get-started {
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.btn-get-started:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* --- 1. أساسيات السيكشن والعنوان --- */
+.about {
+  padding: 80px 0;
+  background: #fff;
+  text-align: center;
+}
+
+.main-title {
+  margin-bottom: 50px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 5px 15px;
+  background: rgba(224, 62, 54, 0.1); /* لون أحمر خفيف خلفية */
+  color: #e03e36;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.main-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+}
+
+.red-text {
+  color: #e03e36;
+}
+
+/* --- 2. توزيع المحتوى (Flexbox) --- */
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  text-align: left; /* الجزء النصي بيبدأ من الشمال */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.left-side {
+  flex: 1;
+  min-width: 300px;
+}
+
+.left-side h3 {
+  font-size: 26px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.left-side p {
+  line-height: 1.7;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* --- 3. حركة الزرار الصايعة --- */
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 25px;
+  background: #e03e36;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: 0.3s ease-in-out;
+}
+
+.about-btn:hover {
+  background: #f05a54; /* تفتيح اللون عند الـ Hover */
+  transform: translateY(-3px); /* رفعة بسيطة لفوق */
+}
+
+/* --- 4. كروت الـ Boxes والحركات المتحركة --- */
+.right-side {
+  flex: 1.5;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* كارتين جنب بعض */
+  gap: 20px;
+}
+
+.box {
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.4s all ease;
+  border-bottom: 3px solid transparent; /* خط وهمي هيظهر في الـ Hover */
+}
+
+.box i {
+  font-size: 36px;
+  color: #e03e36;
+  margin-bottom: 15px;
+  transition: 0.4s;
+}
+
+.box h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.box p {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* --- الـ Hover Effects الصايعة للكروت --- */
+.box:hover {
+  transform: translateY(-10px); /* الكارت يترفع لفوق */
+  border-color: #e03e36; /* الخط اللي تحت يظهر باللون الأحمر */
+}
+
+.box:hover i {
+  transform: scale(1.1); /* الأيقونة تكبر سنة */
+}
+
+/* --- 5. الـ Responsive (عشان يظبط عالموبايل) --- */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .right-side {
+    grid-template-columns: 1fr; /* الكروت تبقى تحت بعض في الموبايل */
+  }
+
+  .left-side {
+    text-align: center;
+  }
+}
+
+/* --- إعدادات الموبايل (Responsive) --- */
+
+/* أيقونة المنيو مخفية في الـ Desktop */
+.mobile_nav_toggle {
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  display: none; /* مخفية افتراضياً */
+  line-height: 0;
+  transition: 0.5s;
+}
+
+/* --- إعدادات الموبايل (Responsive) النهائية - المنيو "على المسطرة" --- */
+
+/* 1. إخفاء المحرك والأيقونة في الديسكتوب */
+#menu-bar,
+.mobile_nav_toggle {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  /* 2. ضبط الحاوية لضمان توسط اللوجو والأيقونة رأسيًا */
+  .header_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  /* 3. إظهار الأيقونة وتوسيطها */
+  .mobile_nav_toggle {
+    display: block;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    position: static;
+    line-height: 1;
+    z-index: 10001;
+  }
+
+  /* 4. القائمة الجانبية وتفعيل السكرول الداخلي */
+  .nav_bar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #181a1b;
+    transition: 0.4s ease-in-out;
+    z-index: 10000;
+    padding-top: 70px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+  }
+
+  /* 5. فتح المنيو عند الضغط */
+  #menu-bar:checked ~ .nav_bar {
+    right: 0;
+  }
+
+  /* 6. تحويل الأيقونة لعلامة X عند الفتح */
+  #menu-bar:checked ~ .mobile_nav_toggle i::before {
+    content: "\f00d";
+  }
+
+  /* 7. تنسيق الروابط وإلغاء "الشرط الحمراء" تمامًا */
+  .nav_bar ul {
+    display: block;
+    padding: 20px;
+    list-style: none;
+  }
+
+  .nav_bar ul li {
+    padding: 8px 0;
+    width: 100%;
+  }
+
+  .nav_bar ul li a {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: capitalize;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .nav_bar ul li a::after {
+    display: none !important; /* ضمان عدم ظهور أي خطوط حمراء */
+    content: none !important;
+  }
+
+  /* --- 8. حركة الأسهم (شمال للقارئ -> تحت) --- */
+  .nav_bar .dropdown > a i,
+  .nav_bar .dropdown ul li.deep_dropdown > a i {
+    display: inline-block;
+    transform: rotate(180deg);
+    transition: 0.4s ease;
+    font-size: 12px;
+  }
+
+  .nav_bar .dropdown:hover > a i,
+  .nav_bar .dropdown ul li.deep_dropdown:hover > a i {
+    transform: rotate(90deg);
+    color: var(--primary-color);
+  }
+
+  /* --- 9. ضبط المنسدلات والمنسدلة العميقة (حل مشكلة الخروج بره الـ Parent) --- */
+
+  /* القائمة الأولى */
+  .nav_bar .dropdown ul {
+    position: static;
+    display: none;
+    background: rgba(255, 255, 255, 0.03);
+    margin: 10px 0 0 10px;
+    padding: 5px 15px;
+    border-radius: 4px;
+    width: auto; /* لضمان عدم التمدد خارج النطاق */
+  }
+
+  /* القائمة العميقة (Deep Dropdown) - التعديل اللي طلبته */
+  .nav_bar .dropdown ul li.deep_dropdown ul {
+    position: static;
+    display: none;
+    background: rgba(255, 255, 255, 0.02);
+    margin: 5px 10px 0 15px; /* هوامش بتخليها تدخل لجوه "بيت الطاعة" */
+    padding: 5px 15px;
+    border-radius: 4px;
+    width: auto; /* السطر السحري اللي بيخليها تتلم جوه الـ Parent */
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav_bar .dropdown:hover > ul,
+  .nav_bar .dropdown ul li.deep_dropdown:hover > ul {
+    display: block;
+  }
+
+  /* 10. نصوص الهيرو سيكشن */
+  .sec_one_content h1 {
+    font-size: 26px !important;
+  }
+  .sec_one_content p {
+    font-size: 15px !important;
+  }
+}

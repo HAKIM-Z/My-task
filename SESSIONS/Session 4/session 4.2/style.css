@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img {
+  width: 300px;
+  position: relative;
+  animation-name: taxi;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes taxi {
+  0% {
+    top: 0;
+    left: 0;
+    transform: rotatey(180deg);
+  }
+  49% {
+    top: 0;
+    left: 700px;
+    transform: rotatey(180deg);
+  }
+  51% {
+    top: 0;
+    left: 700px;
+    transform: rotatey(360px);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    transform: rotatey(180px);
+  }
+}

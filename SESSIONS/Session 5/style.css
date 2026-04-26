@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+}
+.container {
+  height: 100vh;
+  border: 3px solid red;
+  padding: 10px;
+  display: grid;
+  grid-template-areas:
+    "c1 c2 c2 c3"
+    "c1 c4 c5 c6"
+    "c1 c7 c8 c6";
+  gap: 10px;
+}
+.c1 {
+  background-color: rgb(0, 132, 255);
+  grid-area: c1;
+}
+.c2 {
+  background-color: rgb(0, 255, 72);
+  grid-area: c2;
+}
+.c3 {
+  background-color: rgb(208, 179, 199);
+  grid-area: c3;
+}
+.c4 {
+  background-color: rgb(255, 85, 0);
+  grid-area: c4;
+}
+.c5 {
+  background-color: rgb(60, 30, 58);
+  grid-area: c5;
+}
+.c6 {
+  background-color: rgba(0, 132, 255, 0.59);
+  grid-area: c6;
+}
+.c7 {
+  background-color: rgb(255, 0, 183);
+  grid-area: c7;
+}
+.c8 {
+  background-color: rgba(0, 132, 255, 0.175);
+  grid-area: c8;
+}
+.child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
