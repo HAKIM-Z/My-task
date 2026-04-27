@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+  /* scroll-padding-top: 1px; */
+}
+
 :root {
   --primary-color: #e43c17;
-  --header-bg: rgba(0, 0, 0, 0.8);
-  --transition: all 0.3s ease-in-out;
+  --bg-dark: #181a1b; /* اللون الأساسي بتاعنا */
+  --header-solid: rgba(0, 0, 0, 0.95);
+  --transition: all 0.4s ease-in-out;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -13,14 +21,35 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #444;
 }
+:root {
+  --primary-color: #e43c17;
+  --bg-dark: #181a1b; /* اللون الأساسي للسكاشن */
+  --header-bg: rgba(0, 0, 0, 0.8); /* لون الهيدر الأسود الشفاف اللي طلبته */
+  --transition: all 0.4s ease-in-out;
+}
+
+/* --- تعديل الهيدر ليعمل مع السكرول بدون JS --- */
 header {
-  background-color: var(--header-bg);
-  padding: 15px 0;
-  position: fixed; /* ليظل ثابتاً في الأعلى عند السكرول */
+  background-color: transparent; /* بيبدأ شفاف */
+  padding: 20px 0;
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
   transition: var(--transition);
+
+  /* الحركة السحرية بالـ CSS */
+  animation: header-scroll linear both;
+  animation-timeline: scroll();
+  animation-range: 0px 100px; /* اللون بيكمل سواد بعد أول 100 بكسل سكرول */
+}
+
+@keyframes header-scroll {
+  to {
+    background-color: var(--header-bg);
+    padding: 12px 0; /* بيصغر شوية مع السكرول عشان يبقى شيك */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
 }
 .header_container {
   max-width: 1200px;
@@ -70,13 +99,16 @@ header {
   background-color: var(--primary-color);
   transition: var(--transition);
 }
+/* التعديل ده بيخلي الخط الأحمر يظهر لما تدوس (Focus) */
 .nav_bar ul li a:hover::after,
-.nav_bar ul li a.active::after {
+.nav_bar ul li a:focus::after {
   width: 100%;
 }
+
 .nav_bar ul li a:hover,
-.nav_bar ul li a.active {
+.nav_bar ul li a:focus {
   color: var(--primary-color);
+  outline: none; /* عشان ما يظهرش برواز أزرق دمه تقيل */
 }
 /* --- ضبط القوائم المنسدلة --- */
 
@@ -172,7 +204,7 @@ header {
   line-height: 1.5;
   font-size: 12px;
 }
-.sec_one {
+.home {
   height: 100vh;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -184,14 +216,14 @@ header {
   align-items: center;
   text-align: center;
 }
-.sec_one_content h1 {
+.home_content h1 {
   color: #fff;
   font-family: "Raleway", sans-serif;
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 15px;
 }
-.sec_one_content p {
+.home_content p {
   color: #eee;
   font-size: 20px;
   margin-bottom: 30px;
@@ -210,22 +242,30 @@ header {
   border-color: var(--primary-color);
 }
 
-/* --- 1. أساسيات السيكشن والعنوان --- */
+/* --- الجزء الخاص بسيكشن About (المبني على الـ HTML بتاعك) --- */
+
 .about {
-  padding: 80px 0;
-  background: #fff;
+  padding: 100px 0;
+  background-color: var(--bg-dark); /* اللون #181a1b اللي ثبتناه */
   text-align: center;
 }
 
+/* العنوان الرئيسي (About Us) */
 .main-title {
-  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* السطر السحري اللي بيوسطن كل حاجة */
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 60px;
+  width: 100%;
 }
 
 .badge {
   display: inline-block;
   padding: 5px 15px;
-  background: rgba(224, 62, 54, 0.1); /* لون أحمر خفيف خلفية */
-  color: #e03e36;
+  background: rgba(228, 60, 23, 0.1); /* أحمر شفاف */
+  color: var(--primary-color); /* #e43c17 */
   font-weight: 700;
   font-size: 14px;
   border-radius: 50px;
@@ -235,92 +275,114 @@ header {
 .main-title h2 {
   font-size: 32px;
   font-weight: 700;
-  color: #222;
+  color: #fff; /* أبيض عشان يبان في الـ Dark Mode */
 }
 
-.red-text {
-  color: #e03e36;
-}
-
-/* --- 2. توزيع المحتوى (Flexbox) --- */
+/* المحتوى المقسم يمين وشمال */
 .about-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
-  text-align: left; /* الجزء النصي بيبدأ من الشمال */
+  gap: 40px;
+  text-align: left;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
+/* الجزء النصي (الشمال) */
 .left-side {
   flex: 1;
   min-width: 300px;
 }
 
 .left-side h3 {
-  font-size: 26px;
-  color: #333;
+  font-size: 30px;
+  color: #fff;
   margin-bottom: 20px;
 }
 
 .left-side p {
-  line-height: 1.7;
-  color: #666;
+  line-height: 1.8;
+  color: #aaa; /* رمادي فاتح للسيكشن */
   margin-bottom: 30px;
 }
 
-/* --- 3. حركة الزرار الصايعة --- */
+/* الزرار (Read More) */
 .about-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 25px;
-  background: #e03e36;
-  color: #fff;
+  padding: 12px 30px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
   text-decoration: none;
-  border-radius: 4px;
-  transition: 0.3s ease-in-out;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .about-btn:hover {
-  background: #f05a54; /* تفتيح اللون عند الـ Hover */
-  transform: translateY(-3px); /* رفعة بسيطة لفوق */
+  background: var(--primary-color);
+  color: #fff;
 }
 
-/* --- 4. كروت الـ Boxes والحركات المتحركة --- */
+/* الجزء اليمين (الشبكة / الـ Boxes) */
 .right-side {
   flex: 1.5;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* كارتين جنب بعض */
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
 }
 
+/* التعديل المطلوب لتغيير لون العناوين عند الهافور على الـ Box */
+.box:hover h4 {
+  color: var(--primary-color);
+  transition: var(--transition); /* عشان اللون يتغير بنعومة */
+}
+
+/* لو عايز كمان الأيقونة والبارافراف يتأثروا أو يفضلوا زي ما هم، التأثير ده كافي جداً */
+
+/* الكروت (الـ Boxes) */
 .box {
-  padding: 30px;
-  background: #fff;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-  transition: 0.4s all ease;
-  border-bottom: 3px solid transparent; /* خط وهمي هيظهر في الـ Hover */
+  padding: 20px;
+  background: transparent; /* شفافة زي الصورة */
+  transition: 0.4s;
 }
 
 .box i {
   font-size: 36px;
-  color: #e03e36;
+  color: var(--primary-color);
   margin-bottom: 15px;
-  transition: 0.4s;
 }
 
 .box h4 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #222;
+  color: #fff;
 }
 
 .box p {
   font-size: 14px;
-  color: #777;
-  line-height: 1.5;
+  color: #888;
+  line-height: 1.6;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+}
+
+/* التنسيق للموبايل */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+  }
+  .right-side {
+    grid-template-columns: 1fr;
+  }
+  .left-side,
+  .box {
+    text-align: center;
+  }
 }
 
 /* --- الـ Hover Effects الصايعة للكروت --- */
@@ -348,16 +410,303 @@ header {
   }
 }
 
-/* --- إعدادات الموبايل (Responsive) --- */
+/* --- سيكشن الخدمات الرئيسي --- */
+.services {
+  padding: 100px 0;
+  background-color: var(--bg-dark); /* اللون #181a1b */
+}
 
-/* أيقونة المنيو مخفية في الـ Desktop */
-.mobile_nav_toggle {
-  color: #fff;
-  font-size: 28px;
+/* توزيع الشبكة (Grid) */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 أعمدة في الديسكتوب */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* التنسيق العام لكل الكروت */
+.service-box {
+  padding: 40px 25px;
+  transition: all 0.4s ease;
   cursor: pointer;
-  display: none; /* مخفية افتراضياً */
-  line-height: 0;
-  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* المحاذاة لليسار زي الفيديو */
+  text-align: left;
+}
+
+.service-box i {
+  font-size: 36px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.service-box h4,
+.service-box span {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 15px;
+  font-family: "Raleway", sans-serif;
+  transition: 0.3s;
+}
+
+.red-text {
+  color: var(--primary-color); /* اللي هو اللون الأحمر بتاعنا */
+}
+
+.service-box p {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.6;
+  transition: 0.3s;
+}
+
+/* --- 1. النوع الأول: bg-hover (الكروت الكبيرة اللي بتقلب أحمر) --- */
+.bg-hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+}
+
+.bg-hover:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-5px);
+}
+
+.bg-hover:hover i,
+.bg-hover:hover h4,
+.bg-hover:hover p {
+  color: #fff; /* كل حاجة تقلب أبيض عند الهافور */
+}
+
+/* --- 2. النوع الثاني: border-hover (الكروت الصغيرة اللي تحت) --- */
+.border-hover {
+  background: rgba(255, 255, 255, 0.03);
+  flex-direction: row; /* الأيقونة جنب الكلمة */
+  align-items: center;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.border-hover i {
+  margin-bottom: 0;
+  margin-right: 15px;
+  font-size: 24px;
+}
+
+.border-hover span {
+  margin-bottom: 0;
+}
+
+.border-hover:hover {
+  border-color: var(--primary-color); /* البوردر بس اللي يلون */
+}
+
+.border-hover:hover i {
+  color: var(--primary-color);
+}
+
+/* --- Responsive للموبايل والتابلت --- */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* عمودين في التابلت */
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* عمود واحد في الموبايل */
+  }
+  .service-box {
+    align-items: center;
+    text-align: center;
+  }
+  .border-hover {
+    justify-content: center;
+  }
+}
+.cta {
+  padding: 80px 0;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("images/cta-bg.jpg") fixed center center; /* الـ fixed دي بتعمل حركة الفيديو */
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+}
+
+.cta-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cta h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-family: "Raleway", sans-serif;
+}
+
+.cta p {
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.cta-btn {
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: 0.3s;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.cta-btn:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* --- Portfolio Section --- */
+.portfolio {
+  padding: 80px 0;
+  background-color: #181a1b; /* التأكد من الخلفية الغامقة للمشروع */
+}
+
+/* 1. تنسيق الفلاتر (الكبسولات) */
+.portfolio-filters {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+.portfolio-filters li {
+  cursor: pointer;
+  padding: 10px 22px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+}
+
+.portfolio-filters li:hover,
+.portfolio-filters li.filter-active {
+  background: var(--primary-color); /* اللون الأحمر بتاعك */
+}
+
+/* 2. توزيع الـ Grid والمسافات (20px Gap) */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 أعمدة متساوية */
+  gap: 20px; /* المسافة اللي طلبتها بين الصور */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 3. حاوية الصورة (الحل لمشكلة الخروج بره البرواز) */
+.portfolio-item {
+  position: relative;
+  overflow: hidden; /* أهم سطر: بيحبس الزووم جوه المربع */
+  height: 250px; /* طول موحد لكل الصور عشان يبقوا متساويين من فوق ومن تحت */
+  border-radius: 4px;
+}
+
+.portfolio-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* بتخلي الصورة تملا المربع بدون ما شكلها يبوظ */
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+/* 4. الطبقة السوداء الشفافة (Hover Overlay) */
+.portfolio-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8); /* سواد شفاف زي الفيديو المرجعي */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* مختفية في العادي */
+  transition: all 0.4s ease-in-out;
+  z-index: 2;
+}
+
+/* حركة الزووم والظهور */
+.portfolio-item:hover img {
+  transform: scale(1.1); /* الزووم بيفضل "محبوس" جوه بسبب الـ overflow */
+}
+
+.portfolio-item:hover .portfolio-info {
+  opacity: 1; /* تظهر الطبقة السوداء بنعومة */
+}
+
+/* تنسيق النصوص جوه الـ Hover */
+.portfolio-info h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.portfolio-info p {
+  color: #aaa;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.portfolio-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.portfolio-links a {
+  color: #fff;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.portfolio-links a:hover {
+  color: var(--primary-color);
+}
+
+/* 5. التوافق مع الموبايل والتابلت */
+@media (max-width: 992px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr); /* صورتين في الصف */
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* صورة واحدة في الصف */
+  }
+  .portfolio-item {
+    height: 220px; /* تقليل الطول شوية للموبايل */
+  }
 }
 
 /* --- إعدادات الموبايل (Responsive) النهائية - المنيو "على المسطرة" --- */
@@ -489,10 +838,10 @@ header {
   }
 
   /* 10. نصوص الهيرو سيكشن */
-  .sec_one_content h1 {
+  .home_content h1 {
     font-size: 26px !important;
   }
-  .sec_one_content p {
+  .home_content p {
     font-size: 15px !important;
   }
 }
