@@ -1,0 +1,19 @@
+-----------------4----------------------
+--rem em   
+--css combinators(space,+,>,~)
+--inherit
+--after&before
+
+--font-awesome
+--varibles
+
+
+
+--animation (div-color,moved div , slider, taxi ,typing) 
+   animation-fill-mode
+--semantic Element
+--css nesting
+--box-shadow (box shadow gnerator) prefix(css-auto-prefix)
+--liner-gradient   => (ui gradiant)
+  radial-gradient 
+--flex-box

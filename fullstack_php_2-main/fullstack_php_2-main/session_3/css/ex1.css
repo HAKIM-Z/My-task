@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header{
+    /* background-color: blueviolet; */
+    /* height: 100vh;
+    background-image: url(../images/shutterstock_277750193.jpg);
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden; */
+}
+.item{
+    /* background-color: tomato;
+    width: fit-content;
+    margin: auto; */
+    /* height: 300px; */
+    /* margin-top: 50px;
+    text-align: center; */
+}
+.troan{
+    background-color: blue;
+    width: 150px;
+    height: 150px;
+    transition: all 1s;
+}
+.troan:hover{
+    /* transform: rotate(180deg); */
+        /* transform: rotateX(250deg); */
+        /* transform: translate(100px,200px); */
+        /* transform: translateX(100px); */
+        /* transform: scale(0.3); */
+
+        transform:rotate(180deg) translate(100px,200px) scale(0.3)  skewX(20deg);
+    background-color: red;
+} 

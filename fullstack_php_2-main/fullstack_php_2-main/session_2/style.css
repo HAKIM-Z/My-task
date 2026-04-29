@@ -1,0 +1,208 @@
+*{
+    box-sizing: border-box;
+}
+.item{
+   /* background-color: red; */
+   background-image: url(1.jpg),url(2.jpg);
+   background-attachment: fixed;  /* background-size: cover; */
+   background-repeat: repeat-x,repeat-y;
+   background-position: center center;
+     /* background-repeat: no-repeat;
+     background-position: center; */
+   width: 600px;
+    height:700px;
+
+    /* border-color: black;
+    border-width: 15px;
+    border-style: double; */
+    /* border: 10px green solid; */
+    /* border-top: 10px green solid;
+    border-left: 10px green solid;
+        border-right: 10px green solid; */
+/* border-radius: 50%; */
+/* border-top-left-radius:50% ;
+border-bottom-right-radius:50% ; */
+/* margin-left: 50px;
+margin-top: 50px;
+margin-bottom: 50px;
+margin-right: 50px; */
+/* margin: 50px 100px  ; */
+/* margin: 150px auto; */
+/* padding-top: 10px;
+padding-left: 5px; */
+/* padding: 10px; */
+border: 10px solid green;
+/* text-align: center; */
+}
+p{
+    font-size: 200%;
+    font-weight: bolder;
+      font-family: "Dancing Script", cursive;
+
+    /* font-style: italic; */
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+}
+.test{
+    /* background-color: blue; */
+    width: 95%;
+    margin: auto;
+    text-align: center;
+}
+.inner-item{
+    /* padding: 20px; */
+        background-color: brown;
+
+}
+.parent{
+    width: 25%;
+    float: left;
+    padding: 20px;
+    /* padding: 1px; */
+    border: 1px solid black;
+    
+    
+}
+.parent img{
+    width: 80%;
+    border-radius: 50%;
+}
+/* .parent h2{
+   border-bottom: 2px solid black;
+} */
+ .line{
+    width: 30%;
+    height: 3px;
+    background-color: black;
+    margin: auto;
+ }
+.clr{
+    clear: both;
+}
+
+.testM{
+    background-color: chocolate;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+}
+
+.pos{
+    width: 250px;
+    height: 250px;
+    background-color: green;
+    /* position: absolute; */
+    /* top: 10px;
+    left:  10px; */
+    /* margin-top: 900PX;
+    margin-left: 900PX; */
+    /* position: relative; */
+
+}
+.childe{
+    background-color: red;
+    width: 50px;
+    height: 80px;
+    /* position: fixed; */
+    position: relative;
+    right: 5px;
+    top: 10px;
+}
+
+
+.lorem{
+    background-color: brown;
+    text-align: center;
+    padding: 10px;
+    position: sticky;
+    top: 10px;
+     
+}
+.one{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    position: absolute;
+    left: 100px;
+     top: 200px;
+     z-index: 10;
+}
+.two{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    position: absolute;
+    left: 120px;
+     top: 220px;
+     z-index: 11;
+}
+.three{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+     position: absolute;
+    
+    left: 140px;
+     top: 240px;
+     z-index: 13;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  
+xsm <600
+     600>sm>768
+768>md>992
+992>lg>1200
+xlg >1200
+*/
+
+@media screen and (min-width:1200px){
+      .inner-item{
+        /* width: 100%; */
+        /* background-color: blue; */
+    }
+    .parent{
+        width: 25%;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1199px){
+    .inner-item{
+        /* width: 100%; */
+        background-color: blue;
+    }
+    .parent{
+        width: 33.3%;
+    }
+    
+}
+@media screen and (min-width:768px) and (max-width:991px){
+    .inner-item{
+        /* width: 100%; */
+        background-color: blue;
+    }
+    .parent{
+        width: 50%;
+    }
+    
+}
+@media screen and (max-width: 600px) {
+    .inner-item{
+        /* width: 100%; */
+        background-color: blue;
+    }
+    .parent{
+        width: 100%;
+    }
+    
+}

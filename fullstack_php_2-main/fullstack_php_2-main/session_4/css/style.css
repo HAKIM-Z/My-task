@@ -1,0 +1,406 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* background-color: black; */
+}
+.parent{
+    /* background-color: blue; */
+    border: 12px solid red;
+    height: 100vh;
+    display: flex;
+    width: 500px;
+/* flex-wrap: wrap;
+flex-direction: row; */
+/* flex-flow: row wrap; */
+/* justify-content: center;
+align-items: center; */
+}
+.item{
+/* width: 200px;
+height: 100px; */
+
+/* float: left; */
+}
+.chiled1{
+    background-color: blueviolet;
+    /* order: 0; */
+    /* flex-grow: 0; */
+    flex-shrink: 1;
+}
+.chiled2{
+    background-color: yellow;
+    /* order: -1; */
+    /* flex-grow: 2;  */
+        flex-shrink: 2;
+
+
+    
+}
+.chiled3{
+    background-color: firebrick;
+    /* order: 2; */
+    /* flex-grow: 3; */
+        flex-shrink: 1;
+
+
+}
+.chiled4{
+    background-color: burlywood;
+    /* order: -2; */
+    /* flex-grow: 0; */
+    flex-shrink: 3;
+
+}
+.chiled5{
+    background-color: cadetblue;
+    /* flex-grow: 2; */
+        flex-shrink: 1;
+
+
+}
+
+
+
+
+/* @media (max-width:700px){
+    .parent{
+        flex-direction: column;
+        text-align: center;
+    }
+} */
+
+
+
+.container{
+    /* background-color: blue; */
+    display: flex;
+    width: 80%;
+    margin: auto;
+    column-gap: 20px;
+    margin-top: 10px;
+}
+.item{
+    width:  calc(100% /3);
+    background-color: tomato;
+    text-align: center;
+   
+}
+.item h2{
+    padding: 10px;
+}
+.item img{
+    width: 80%;
+     border-radius: 50%;
+}
+
+html{
+    font-size: 20px;
+}
+.test{
+    /* background-color: blue;
+    width: 10rem;
+    height: 10rem; */
+    background-color: goldenrod;
+    padding: 15px;
+}
+.test p{
+    padding: inherit;
+}
+.test > p{
+    color: red;
+}
+.test ~ h3{
+    color: blue;
+}
+
+
+h2{
+    text-align: center;
+position: relative;
+}
+h2::after{
+    content: "";
+    background-color: blue;
+        position: absolute;
+width: 33%;
+height: 5px;
+right: 5px;
+top: 50%;
+
+    /* width: 100px; */
+}
+h2::before{
+    content: "";
+    background-color: blue;
+        position: absolute;
+width: 33%;
+height: 5px;
+left: 5px;
+top: 50%;
+
+    /* width: 100px; */
+}
+
+h1{
+padding: 30px 20px;
+width: 25%;
+text-align: center;
+border: 6px solid teal;
+position: relative;
+}
+h1::after{
+    content: "";
+    background-color: white;
+    width: 35px;
+    height: 30px;
+    position: absolute;
+    left: 25px;
+    top: 90%;
+}
+
+h1::before{
+    content: "";
+    background-color: teal;
+    width: 8px;
+    height: 50px;
+    position: absolute;
+    left: 40px;
+    top: 90%;
+    z-index: 99999;
+}
+i{
+    color: red;
+    /* font-size: 30px; */
+}
+
+.anim{
+    background-color: red;
+    width: 200px;
+    height: 200px;
+    animation-name: kanba;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes kanba{
+
+0%{
+        background-color: red;
+
+}
+25%{
+            background-color: rgb(121, 9, 70);
+
+}
+50%{
+        background-color: blue;
+
+}
+75%{
+                background-color: rgb(9, 89, 121);
+
+}
+
+100%{
+        background-color: yellow;
+
+}
+
+
+}
+
+
+/* header{
+    background-image: url(../images/shutterstock_277750193.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    animation-name: slider;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+} */
+
+/* @keyframes slider{
+    0%{
+            background-image: url(../images/shutterstock_277750193.jpg);
+            width: 100%;
+            height: 100vh;
+
+    }
+
+      25%{
+            background-image: url(../images/bg2.jpg);
+              width: 0;
+            height: 0;
+
+    }
+       50%{
+            background-image: url(../images/business-2.jpg);
+               width: 100%;
+            height: 100vh;
+
+    }
+        75%{
+            background-image: url(../images/bg6.jpg);
+              width: 0;
+            height: 0;
+
+    }
+      100%{
+            background-image: url(../images/bg.jpg);
+                width: 100%;
+            height: 100vh;
+
+    }
+} */
+
+
+
+.loader{
+    display: block;
+    position: relative;
+    height: 32px;
+    width: 140px;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    box-sizing: border-box;
+    animation: balancing 2s linear infinite alternate;
+    transform-origin: center center;
+  }
+  .loader:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 52px;
+    height: 26px;
+    border-radius: 20px;
+    background: #FF3D00;
+    animation: ballbns 2s linear infinite alternate;
+  }
+  @keyframes ballbns {
+    0% {  left: 0; transform: translateX(0%); }
+    100% {  left: 100%; transform: translateX(-100%); }
+  }
+  @keyframes balancing {
+    0% {  transform: rotate(-25deg); }
+    50% {  transform: rotate(0deg); }
+    100% {  transform: rotate(25deg); }
+  }
+  
+
+  img{
+position: relative;
+animation-name:taxi ;
+animation-duration: 5s;
+animation-iteration-count: infinite;
+
+  }
+  @keyframes taxi{
+    0%{
+left: 0;  top: 0;
+transform: rotateY(180deg);
+    }
+    50%{
+        left: 700px; top: 0;
+        transform: rotateY(180deg);
+    }
+      51%{
+        left: 700px; top: 0;
+        transform: rotateY(360deg);
+    }
+    100%{
+        left: 0; top: 0;
+                transform: rotateY(360deg);
+
+    }
+  }
+
+  h4{
+    text-align: center;
+
+  }
+ 
+   h4::after{
+    content: "|";
+    animation-name: typing;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes typing{
+    0%{
+ content: "|";
+    }
+    5%{
+       content: "|D";  
+    }
+      10%{
+       content: "|De";  
+    }
+     15%{
+       content: "|Des";  
+    }
+        20%{
+       content: "|Desi";  
+    }
+         25%{
+       content: "|Desig";  
+    }
+         30%{
+       content: "|Design";  
+    }
+  }
+
+  .icon{
+    &:hover{
+
+    }
+    width: 40px;
+    height: 40px;
+    background-color: black;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+i{
+    color: yellow;
+}
+  }
+/* .icon:hover i{
+
+} */
+  /* i{
+    padding: 20px;
+    background-color: black;
+    border-radius: 50%;
+    text-align: center;
+  } */
+
+  .shadow{
+    width: 200px;
+    height: 200px;
+    background-color: tomato;
+    box-shadow: 10px 10px 10px 10px gray;
+  }
+  h4{
+text-shadow: -2px 75px 5px rgba(121,8,8,0.6); 
+ }
+
+
+ header{
+    background-image: linear-gradient(100deg, rgba(100,200,50,0.5) ,rgba(0, 9, 128,.5) ,rgba(128, 0, 28, 0.5) )
+    ,url(../images/bg2.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+ }
+
+ .radial{
+    width: 200px;
+    height: 200px;
+    background-image: radial-gradient(blue , red, blue);
+ }

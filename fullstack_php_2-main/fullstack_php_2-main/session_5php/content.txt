@@ -1,0 +1,34 @@
+1-How the internet works   IP, DNS and Server Protocols
+
+3-The Difference between Frontend and Backend and how it works
+    What is the Server
+
+
+
+5-Why PHP?
+6-PHP Cons and Pros
+7-PHP Frameworks
+8-interpreter vs compiler
+
+
+94->95      personal home page
+98->php3    php hypertext proproccesor    more features  larg projecr
+200-> php4 
+2004-> php5   oop
+2020->compiler interpreter+6
+
+
+   Backend Requirements
+1-Programming Language
+2-Database
+3-Server
+
+
+-install
+-intro php
+-ide
+-tags
+-variable
+-casting
+-if
+-operators

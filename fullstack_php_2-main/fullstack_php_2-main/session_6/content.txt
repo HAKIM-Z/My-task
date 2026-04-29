@@ -1,0 +1,25 @@
+--switch ✔
+--comments ✔
+--operators ✔
+--increment&decrement
+--loop-break-continue
+--Array
+--foreach
+--AssocArray
+--multiArray
+--bassByValue
+--function
+--scope
+--const
+--get&post
+--cookie
+--session
+--server& validate
+--files
+--request
+--BuiltInFunctions
+--validates
+--TypeofError
+--include&require
+--echo-print  single-doublequate
+--files
