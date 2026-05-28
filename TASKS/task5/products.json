@@ -1,0 +1,32 @@
+{
+    "Laptop Dell": {
+        "price": "15000",
+        "img": "1.png",
+        "desc": "Dell Core i7, 16GB RAM, 512GB SSD"
+    },
+    "MacBook Pro": {
+        "price": "45000",
+        "img": "2.png",
+        "desc": "Apple M2 Chip, 8GB RAM, 256GB SSD"
+    },
+    "iPhone 14": {
+        "price": "30000",
+        "img": "3.png",
+        "desc": "128GB Storage, Midnight Color"
+    },
+    "Samsung S23": {
+        "price": "28000",
+        "img": "4.png",
+        "desc": "256GB Storage, Phantom Black"
+    },
+    "AirPods Pro": {
+        "price": "6000",
+        "img": "5.png",
+        "desc": "Active Noise Cancellation"
+    },
+    "Smart Watch": {
+        "price": "3500",
+        "img": "6.png",
+        "desc": "Fitness Tracker with Heart Rate Monitor"
+    }
+}
